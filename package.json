@@ -1,0 +1,34 @@
+{
+  "name": "pnp-bot-2.0",
+  "version": "2.0.0",
+  "description": "This is the Pen and Players RolePlay Server Discord bot 2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LCypherus/pnp-bot-2.0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LCypherus/pnp-bot-2.0/issues"
+  },
+  "homepage": "https://github.com/LCypherus/pnp-bot-2.0#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "module-alias": "^2.2.2",
+    "mongoose": "^5.12.13",
+    "wokcommands": "^1.3.6"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@schemas": "./schemas",
+    "@util": "./util",
+    "@features": "./features",
+    "@commands": "./commands"
+  }
+}
