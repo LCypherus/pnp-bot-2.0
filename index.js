@@ -1,5 +1,10 @@
-const Discord = require('discord.js')
-const client = new Discord.Client()
+require('module-alias/register')
+
+const DiscordJS = require('discord.js')
+const client = new DiscordJS.Client({
+    // Use recommended partials for the built-in help menu
+    partials: ['MESSAGE', 'REACTION']
+})
 const WOKCommands = require('wokcommands')
 
 require('dotenv').config();
@@ -10,7 +15,7 @@ client.on('ready', () => {
     const wok = new WOKCommands(client, {
         commandsDir: 'commands',
         featuresDir: 'features',
-        messagesPath: '',
+        messagesPath: 'messages.json',
         showWarns: true,
         del: -1,
         ignoreBots: false,
@@ -21,11 +26,8 @@ client.on('ready', () => {
             useFindAndModify: false,
         },
         disabledDefaultCommands: [
-            // 'help',
-            // 'command',
-            // 'language',
-            // 'prefix',
-            // 'requiredrole'
+            'command',
+            'language',
         ]
     })
 
@@ -35,20 +37,25 @@ client.on('ready', () => {
     .setMongoPath(process.env.MONGODB)
     .setCategorySettings([
         {
-            name: 'Math',
-            emoji: '🎮'
+            name: 'Player Commands',
+            emoji: '📲'
         },
         {
-            name: 'Economy',
-            emoji: '💸'
+            name: 'Player Admin Commands',
+            emoji: '👨‍💻'
         },
         {
-            // You can change the default emojis as well
-            // "Configuration" is ⚙ by default
-            name: 'Configuration',
+            name: 'Channel Admin Commands',
+            emoji: '🖥'
+        },
+        {
+            name: 'Coding Commands',
+            emoji: '🛠',
+            hidden: true
+        },
+        {
+            name: 'Development',
             emoji: '🚧',
-            // You can also hide a category from the help menu
-            // Admins bypass this
             hidden: true
         }
     ])

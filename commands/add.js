@@ -1,7 +1,7 @@
 module.exports = {
     // Best practice for the built-in help menu
     description: 'Adds two numbers together',
-    
+    category: 'Player Commands',
     // For the correct usage of the command
     expectedArgs: '<Number 1> <Number 2>',
     minArgs: 2,
