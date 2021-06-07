@@ -1,6 +1,6 @@
 module.exports = {
     commands: 'ping',
-    category: 'Coding Commands',
+    category: 'Owner Commands',
     minArgs: 0,
     maxArgs: 0,
     description: 'Replies with pong',

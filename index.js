@@ -49,7 +49,7 @@ client.on('ready', () => {
             emoji: '🖥'
         },
         {
-            name: 'Coding Commands',
+            name: 'Owner Commands',
             emoji: '🛠',
             hidden: true
         },
