@@ -14,22 +14,19 @@ module.exports = {
             return
         }
 
-        args.shift()
-
         const guildId = message.guild.id 
         const userId = target.id
-        const reason = args.join(' ')
 
-        const warning = {
-            author: message.member.user.tag,
-            timestamp: new Date().getTime(),
-            reason,
-        }
-
-        await new punishmentLogSchema({
+        const warn = await new punishmentLogSchema({
             guildId,
             userId,
             command: message.content
         }).save()
+
+        if(warn) {
+            message.reply(`I successfully added the warn to ${target}.`)
+        } else {
+            message.reply(`I failed to add the warn to ${target}`)
+        }
     }
 }
