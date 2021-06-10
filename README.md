@@ -5,6 +5,7 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 
 ## Player command
 - Add command
+- Get Invitelink
 
 ## Channel admin commands
 - Clear Channel command
@@ -18,8 +19,11 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 - Warn command (logged in punishments)
 - Punishment logs
 
-## Coding commands
+## Owner commands
 - Ping (calculating bot/api latency)
+- Delete punishment
+- Set invitelink
+- Set welcome message
 
 # In progress
 
