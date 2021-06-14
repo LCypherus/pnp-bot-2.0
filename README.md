@@ -29,3 +29,4 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 - Dynamic Create Table command
 
 # In progress
+Blabla
