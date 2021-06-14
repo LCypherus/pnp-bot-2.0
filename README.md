@@ -10,6 +10,7 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 ## Channel admin commands
 - Clear Channel command
 - Delete Channel command
+- Dynamic Create Table command
 
 ## Player admin commands
 - Give role command
@@ -26,7 +27,10 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 - Set welcome message
 
 # In progress
-- Dynamic Create Table command
+- Add ticket role id's by database fetch
+-- Administrator role
+-- Moderator role
+- Create the ticket category/channels by command + add roles to the system???
+- Ticket system
 
 # In progress
-Blabla

@@ -9,25 +9,26 @@ module.exports = {
     category: 'Channel Admin Commands',
     description: 'Create a table with role, category and channels',
 
-    minArgs: 3,
-    expectedArgs: '<shortName> <dm\'s username#xxxx> <tablename>', // <dm\'s username#xxxx> <tablename>
+    minArgs: 4,
+    expectedArgs: '<type of table> <shortName> <dm\'s username#xxxx> <tablename>',
     
     // Invoked when the command is actually ran
     callback: async ({ message, args, client }) => {
         // Find the short and long game name    
         const gamename = await createTableSchema.findOne({
             guildId: message.guild.id,
-            shortName: args[0]
+            shortName: args[1]
         })
 
         // Basic variables
+        const type = args[0]
         const dm = message.mentions.users.first()
         const dmId = dm.id
         const guildId = message.guild.id
         const gameRoleId = gamename.gameRoleId
         const shortName = gamename.shortName
         const longName = gamename.longName
-        const tableName = args.slice(2).join(" ")
+        const tableName = args.slice(3).join(" ")
         const tableShorthand = tableName.match(/(?:^| )(\w)/g).join("").replace(/ /gi, "");
 
         // Pre-made role id's
@@ -99,10 +100,72 @@ module.exports = {
         });
 
         // Create the main channel
-        await message.guild.channels.create(tableShorthand + "-main", {
-            type: 'text',
-            parent: cat,
-        });
+        if(type == "text") {
+            await message.guild.channels.create(tableShorthand + "-main", {
+                type: 'text',
+                parent: cat,
+            });
+        } else if(type == "voice") {
+            await await message.guild.channels.create(tableShorthand + "-voice", {
+                type: 'voice',
+                parent: cat,
+                permissionOverwrites: [
+                    {
+                        id: message.guild.roles.everyone, // Everyone
+                        allow: ["VIEW_CHANNEL"]
+                    },
+                    {
+                        id: spectator, // Spectator
+                        allow: ["VIEW_CHANNEL"]
+                    },
+                    {
+                        id: gameRoleId, // Game Format
+                        allow: ["VIEW_CHANNEL"]
+                    },
+                    {
+                        id: rolesId,
+                        allow: ["VIEW_CHANNEL", "CONNECT", "SPEAK", "USE_VAD", ]
+                    },
+                    {
+                        id: dmId,
+                        allow: ["VIEW_CHANNEL", "MANAGE_CHANNELS", "PRIORITY_SPEAKER", "STREAM", "CONNECT", "SPEAK", "MUTE_MEMBERS", "DEAFEN_MEMBERS", "USE_VAD"]
+                    }
+                ]
+            });
+        } else if(type == "both") {
+            await message.guild.channels.create(tableShorthand + "-main", {
+                type: 'text',
+                parent: cat,
+            });
+            await message.guild.channels.create(tableShorthand + "-voice", {
+                type: 'voice',
+                parent: cat,
+                permissionOverwrites: [
+                    {
+                        id: message.guild.roles.everyone, // Everyone
+                        allow: ["VIEW_CHANNEL"]
+                    },
+                    {
+                        id: spectator, // Spectator
+                        allow: ["VIEW_CHANNEL"]
+                    },
+                    {
+                        id: gameRoleId, // Game Format
+                        allow: ["VIEW_CHANNEL"]
+                    },
+                    {
+                        id: rolesId,
+                        allow: ["VIEW_CHANNEL", "CONNECT", "SPEAK", "USE_VAD", ]
+                    },
+                    {
+                        id: dmId,
+                        allow: ["VIEW_CHANNEL", "MANAGE_CHANNELS", "PRIORITY_SPEAKER", "STREAM", "CONNECT", "SPEAK", "MUTE_MEMBERS", "DEAFEN_MEMBERS", "USE_VAD"]
+                    }
+                ]
+            });
+        } else {
+            message.channel.send("Please specify if your making a Text, voice or both campaign.");
+        }
 
         // Create the ooc channel
         await message.guild.channels.create(tableShorthand + "-ooc", {
@@ -168,7 +231,7 @@ module.exports = {
 	        .setThumbnail('https://cdn.discordapp.com/attachments/834882298268221460/840171923093585940/icon.png')
 	        .addFields(
 		        { name: 'Dungeon Master', value: dm, inline: true },
-	        	{ name: 'Format', value: longName, inline: true },
+	        	{ name: 'Format & type', value: longName + ' ' + type, inline: true },
                 { name: 'Table Name:', value: tableName, inline: false },
                 { name: 'Table Shorthand', value: tableShorthand, inline: true },
                 { name: 'Playersrole', value: tableName + " Player", inline: true },
