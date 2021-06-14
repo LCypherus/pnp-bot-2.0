@@ -13,11 +13,7 @@ module.exports = {
     
     // Invoked when the command is actually ran
     callback: ({ message, channel, args, text, client, prefix, instance, interaction }) => {
-        // console.log(message.guild.name, message.guild.ownerID)
-
-        // message.channel.send(message.guild.icon)
-
-        const target = message.mentions.users.first()
-        console.log(target.username)
+        dm = args[0];
+        
     }
 }

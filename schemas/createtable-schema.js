@@ -9,6 +9,7 @@ const createTableSchema = mongoose.Schema({
     guildId: reqString,
     shortName: reqString,
     longName: reqString,
+    gameRoleId: reqString,
 })
 
 module.exports = mongoose.model('createTable', createTableSchema)
