@@ -16,9 +16,6 @@ const fetchChannelData = async () => {
     channelData[key] = [channelId, channelName]
   }
 
-  console.log('CHANNEL DATA:')
-  console.log(channelData)
-
   setTimeout(fetchChannelData, 1000 * 60)
 }
 
@@ -27,7 +24,6 @@ module.exports = (client) => {
 
   const updateCount = (guild, roleId = 'all') => {
     const key = `${guild.id}-${roleId}`
-    console.log('KEY:', key)
     const data = channelData[key]
     if (data) {
       const [channelId, channelName] = data
