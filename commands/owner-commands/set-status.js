@@ -1,5 +1,3 @@
-const botStatusSchema = require('@schemas/bot-status-schema');
-
 module.exports = {
     name: 'set-status',
     commands: ['set-status', 'status'],
@@ -10,17 +8,13 @@ module.exports = {
     expectedArgs: '<bot\'s status>',
     permissions: ['ADMINISTRATOR'],
     
-    callback: async ({ message, channel, args, text, client, prefix, instance, interaction }) => {
-        const guildId = message.guild.id
-        const status = text
+    callback: async ({ text, client }) => {
         
-        await botStatusSchema.findOneAndUpdate({
-            _id: guildId
-        }, {
-            _id: guildId,
-            status,
-        }, {
-            upsert: true
+        client.user.setPresence({
+            activity: {
+                name: text,
+                type: 0,
+            },
         })
     }
 }

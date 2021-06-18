@@ -36,5 +36,14 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 # In progress
 
 # To-do
-- Mute system
-- Dynamic reaction roles
+- Mute system (#56)
+- Unmute (#57)
+- isMuted (#58)
+- Dynamic reaction roles (#80)
+- Simulating joining and leaving (#72)
+- Documentation command? (#66)
+- Advanced suggestions (#70)
+- Nickname command (#65)
+- Bot info (#51)
+- User info (#52)
+- Playing audio in a voice channel (#50)
