@@ -1,7 +1,7 @@
 module.exports = {
     // Best practice for the built-in help menu
     name: 'console',
-    commands: ['console'],
+    commands: ['console', 'testconsole'],
     
     category: 'Owner Commands',
     description: 'Logging items in the console.',
@@ -13,7 +13,7 @@ module.exports = {
     
     // Invoked when the command is actually ran
     callback: ({ message, channel, args, text, client, prefix, instance, interaction }) => {
-        dm = args[0];
+        console.log(message.channel.parent)
         
     }
 }

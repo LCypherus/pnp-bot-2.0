@@ -6,6 +6,8 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 ## Player command
 - Add command
 - Get Invitelink
+- Ticket system (+ adminsonly command)
+- Roll
 
 ## Channel admin commands
 - Clear Channel command
@@ -25,12 +27,14 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 - Delete punishment
 - Set invitelink
 - Set welcome message
+- Add game
+- Set role size channels
+- Ticket admin
+- Set welcome message
+- Set bot's status
 
 # In progress
-- Add ticket role id's by database fetch
--- Administrator role
--- Moderator role
-- Create the ticket category/channels by command + add roles to the system???
-- Ticket system
 
-# In progress
+# To-do
+- Mute system
+- Dynamic reaction roles
