@@ -8,6 +8,18 @@ module.exports = {
     
     // Invoked when the command is actually ran
     callback: ({ message, channel, args, text, client, prefix, instance, interaction }) => {
+        function sortOn(property){
+            return function(a, b){
+                if(a[property] < b[property]){
+                    return -1;
+                }else if(a[property] > b[property]){
+                    return 1;
+                }else{
+                    return 0;   
+                }
+            }
+        }
+        
         // Make player commands array
         let playerCommands = []
         
@@ -16,6 +28,8 @@ module.exports = {
                 playerCommands.push(command)
             }
         })
+        
+        playerCommands.sort(sortOn("names"));
 
         textPlayerCommands = `These are all **Player Commands**: \n\n`
 

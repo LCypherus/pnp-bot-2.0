@@ -3,7 +3,7 @@ const ticketAdminSchema = require('@schemas/ticket-admin-schema');
 
 module.exports = {
     // Best practice for the built-in help menu
-    commands: ['Ticket', 'ticket'],
+    commands: ['Start a ticket', 'ticket'],
     
     category: 'Player Commands',
     description: 'Start a ticket to privatly talk to the moderators and/or admins.',

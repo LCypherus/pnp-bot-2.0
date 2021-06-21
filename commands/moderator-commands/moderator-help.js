@@ -9,6 +9,18 @@ module.exports = {
     
     // Invoked when the command is actually ran
     callback: ({ message, channel, args, text, client, prefix, instance, interaction }) => {
+        function sortOn(property){
+            return function(a, b){
+                if(a[property] < b[property]){
+                    return -1;
+                }else if(a[property] > b[property]){
+                    return 1;
+                }else{
+                    return 0;   
+                }
+            }
+        }
+        
         // Make player commands array
         let playerCommands = []
         
@@ -17,6 +29,8 @@ module.exports = {
                 playerCommands.push(command)
             }
         })
+
+        playerCommands.sort(sortOn("names"));
 
         textPlayerCommands = `These are all **Player Commands**: \n\n`
 
@@ -33,21 +47,23 @@ module.exports = {
             .setTimestamp();
 
         // Make channel moderator commands array
-        let ModeratorCommands = []
+        let moderatorCommands = []
         
         instance.commandHandler.commands.forEach((command) => {
             if( command.category == "Moderator Commands"){
-                ModeratorCommands.push(command)
+                moderatorCommands.push(command)
             }
         })
 
+        moderatorCommands.sort(sortOn("names"));
+
         textModeratorCommands = `These are all **Moderator Commands**: \n\n`
 
-        for (let i = 0; i < ModeratorCommands.length; i++) {
-            textModeratorCommands += `**---------- ${ModeratorCommands[i].names[0]} ----------** \n **Description: **${ModeratorCommands[i].description} \n **Command:** ${prefix}${ModeratorCommands[i].names[1]} ${ModeratorCommands[i].syntax} \n\n`;
+        for (let i = 0; i < moderatorCommands.length; i++) {
+            textModeratorCommands += `**---------- ${moderatorCommands[i].names[0]} ----------** \n **Description: **${moderatorCommands[i].description} \n **Command:** ${prefix}${moderatorCommands[i].names[1]} ${moderatorCommands[i].syntax} \n\n`;
         }
 
-        const ModeratorCommandsEmbed = new Discord.MessageEmbed()
+        const moderatorCommandsEmbed = new Discord.MessageEmbed()
         .setColor(message.guild.me.displayHexColor)
         .setAuthor(`${prefix}moderatorhelp - Requested by ${message.author.username}`, message.author.displayAvatarURL())
         .setTitle(`${client.user.username} Admins Help Menu`)
@@ -55,7 +71,7 @@ module.exports = {
         .setThumbnail(client.user.displayAvatarURL())
         .setTimestamp();
 
-        pages = [playerCommandsEmbed, ModeratorCommandsEmbed];
+        pages = [playerCommandsEmbed, moderatorCommandsEmbed];
 
         paginationEmbed(message, pages);
     }
