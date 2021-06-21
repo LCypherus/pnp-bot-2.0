@@ -19,6 +19,7 @@
   "homepage": "https://github.com/LCypherus/pnp-bot-2.0#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
+    "discord.js-pagination": "^1.0.3",
     "dotenv": "^10.0.0",
     "mathjs": "^9.4.2",
     "module-alias": "^2.2.2",

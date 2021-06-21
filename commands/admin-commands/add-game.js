@@ -1,9 +1,8 @@
 const createTableSchema = require('@schemas/createtable-schema')
 
 module.exports = {
-    name: 'add-game',
-    commands: ['addgame'],
-    category: 'Owner Commands',
+    commands: ['Add game', 'addgame', 'add-game'],
+    category: 'Admin Commands',
     description: 'Add\'s a new game to the gameslist',
     minArgs: 3,
     expectedArgs: "<shortname> <longname>",

@@ -3,15 +3,14 @@ const Discord = require("discord.js");
 const math = require("mathjs");
 
 module.exports = {
-    name: 'roll',
-    commands: ['roll', 'r'],
+    commands: ['Roll', 'roll', 'r'],
     
     category: 'Player Commands',
-    description: 'Basic rolling system',
+    description: 'A basic roll command for all basic rolls and arithmetic.',
 
     minArgs: 1,
     maxArgs: -1,
-    expectedArgs: 'A basic roll command for all basic rolls and arithmetic.',
+    expectedArgs: 'xdy',
 
     callback: async ({ message, channel, args, text, client, prefix, instance, interaction }) => {
         function randomNum(min, max) {

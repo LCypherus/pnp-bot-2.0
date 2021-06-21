@@ -1,8 +1,7 @@
 module.exports = {
-    name: 'clear-channel',
-    commands: ['clearchannel', 'cc'],
+    commands: ['Clear channel', 'cc', 'clear-channel'],
     description: 'Clears a channel from the number of messages written in the argument.',
-    category: 'Channel Admin Commands',
+    category: 'Moderator Commands',
     maxArgs: 1,
     expectedArgs: '<Number of messages to delete>',
     

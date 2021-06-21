@@ -1,12 +1,11 @@
 const punishmentLogSchema = require('@schemas/punishment-log-schema')
 
 module.exports = {
-    name: 'delete-punishment',
-    commands: ['delpun'],
-    category: 'Owner Commands',
+    commands: ['Delete punishment', 'deletepunishment', 'delpun', 'delete-punishment'],
+    category: 'Admin Commands',
     description: 'Removes a punishment from a player',
     minArgs: 2,
-    expectedArgs: "<Target user's @> <whole punishment>",
+    expectedArgs: "<target user's @> <whole punishment>",
     permissions: ['ADMINISTRATOR'],
     callback: async ({message, args}) => {
         const target = message.mentions.users.first()

@@ -1,13 +1,12 @@
 module.exports = {
     // Best practice for the built-in help menu
-    name: 'remove-role',
-    commands: ['removerole', 'delrole', 'deleterole'],
+    commands: ['Remove role', 'removerole', 'remove-role'],
     
-    category: 'Player Admin Commands',
+    category: 'Moderator Commands',
     description: 'Removes a role from a player',
 
     minArgs: 2,
-    expectedArgs: "<Target user's @> <The role name>",
+    expectedArgs: "<target user's @> <role name>",
     
     // Invoked when the command is actually ran
     callback: ({ message, args }) => {

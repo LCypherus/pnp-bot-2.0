@@ -3,13 +3,12 @@ const {fetchChannelData} = require('@features/role-size-channel')
 
 module.exports = {
     // Best practice for the built-in help menu
-    name: 'rolecounter',
-    commands: ['rolecounter'],
-    category: 'Owner Commands',
+    commands: ['Role size channel', 'rolesize', 'role-size-channel'],
+    category: 'Admin Commands',
     description: 'Enables a channel to count the number in a role or a guild.',
     minArgs: 3,
     maxArgs: -1,
-    expectedArgs: '<channel ID> <role ID of "all"> <Channel name>',
+    expectedArgs: '<channel ID> <role ID or "all"> <channel name>',
     permissions: ['ADMINISTRATOR'],
     
     // Invoked when the command is actually ran

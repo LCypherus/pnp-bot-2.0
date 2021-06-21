@@ -3,15 +3,14 @@ const ticketAdminSchema = require('@schemas/ticket-admin-schema');
 
 module.exports = {
     // Best practice for the built-in help menu
-    name: 'ticket',
-    commands: ['ticket', 'maketicket', 'startticket'],
+    commands: ['Ticket', 'ticket'],
     
     category: 'Player Commands',
-    description: 'Start a ticket',
+    description: 'Start a ticket to privatly talk to the moderators and/or admins.',
 
-    minArgs: 0,
+    minArgs: 1,
     maxArgs: 1,
-    expectedArgs: '<adminsOnly> or <newTable>',
+    expectedArgs: '<open> or <adminsOnly> or <newTable>',
     
     // Invoked when the command is actually ran
     callback: async ({ message, args, prefix }) => {
@@ -34,7 +33,7 @@ module.exports = {
         .setThumbnail('https://cdn.discordapp.com/attachments/834882298268221460/840171923093585940/icon.png')
         .setDescription('01. Are you new to DMing?\n02. What format/game do you want to use?\n03. Are you familiar with the format you want to use?\n04. What’s your campaign idea?\n05. How is the campaign going to start?\n06. How many days do you need to start off when your table is created?\n07. How can we help you make your campaign successful to you?\n08. What is the name of your campaign?\n09. Voice or Pbp?\n10. How many players will you handle? ')
 
-        if(type == null) {
+        if(type == "open") {
             const createdChannel = await message.guild.channels.create("Ticket by " + creator, {
                 type: 'text',
                 parent: cat,

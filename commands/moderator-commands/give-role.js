@@ -1,19 +1,17 @@
 module.exports = {
-    // Best practice for the built-in help menu
-    name: 'has-role',
-    commands: ['hasrole'],
+    commands: ['Give role', 'giverole', 'give-role'],
     
-    category: 'Player Admin Commands',
-    description: 'Checks if a user has a role.',
+    category: 'Moderator Commands',
+    description: 'Gives a player a role',
 
     minArgs: 2,
-    expectedArgs: "<Target user's @> <The role name>",
+    expectedArgs: "<target user's @> <role name>",
     
     // Invoked when the command is actually ran
     callback: ({ message, args }) => {
         const targetUser = message.mentions.users.first()
         if (!targetUser) {
-            message.reply('Please specify someone to make a rolecheck.')
+            message.reply('Please specify someone to give a role to.')
             return
         }
   
@@ -31,11 +29,8 @@ module.exports = {
         }
   
         const member = guild.members.cache.get(targetUser.id)
-        
-        if (member.roles.cache.get(role.id)) {
-            message.reply(`That user has the ${roleName} role`)
-        } else {
-            message.reply(`That user does not have the ${roleName} role`)
-        }
+        member.roles.add(role)
+    
+        message.reply(`that user now has the "${roleName}" role`)
     },
 }

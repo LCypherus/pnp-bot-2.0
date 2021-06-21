@@ -2,9 +2,8 @@ const ticketAdminSchema = require('@schemas/ticket-admin-schema')
 
 module.exports = {
     // Best practice for the built-in help menu
-    name: 'ticket-admin',
-    commands: ['ticket-admin', 'ticketadmin', 'addticketadmin'],
-    category: 'Owner Commands',
+    commands: ['Ticket admin', 'ticketadmin', 'ticket-admin'],
+    category: 'Admin Commands',
     description: 'Sets the parent category for the ticket system.',
     minArgs: 3,
     maxArgs: 3,

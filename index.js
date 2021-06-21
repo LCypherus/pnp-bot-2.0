@@ -28,37 +28,13 @@ client.on('ready', () => {
         disabledDefaultCommands: [
             'command',
             'language',
+            'menu',
         ]
     })
 
     .setDisplayName('P&P Bot 2.0')
-    .setDefaultPrefix('?')
-    .setColor('#3CA489')
+    .setDefaultPrefix('&')
     .setMongoPath(process.env.MONGODB)
-    .setCategorySettings([
-        {
-            name: 'Player Commands',
-            emoji: '📲'
-        },
-        {
-            name: 'Player Admin Commands',
-            emoji: '👨‍💻'
-        },
-        {
-            name: 'Channel Admin Commands',
-            emoji: '🖥'
-        },
-        {
-            name: 'Owner Commands',
-            emoji: '🛠',
-            hidden: true
-        },
-        {
-            name: 'Development',
-            emoji: '🚧',
-            hidden: true
-        }
-    ])
 
     wok.on('databaseConnected', (connection, state) => {
         console.log(`The connection state to Mongo is "${state}"`)

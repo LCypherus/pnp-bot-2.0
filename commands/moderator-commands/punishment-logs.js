@@ -2,13 +2,12 @@ const Discord = require('discord.js')
 const punishmentLogSchema = require('@schemas/punishment-log-schema')
 
 module.exports = {
-    name: 'punishment-logs',
-    commands: ['punishmentlogs', 'punishlogs', 'pl'],
-    category: 'Player Admin Commands',
+    commands: ['Punishment logs', 'punishmentlogs', 'punishment-logs', 'pl'],
+    category: 'Moderator Commands',
     description: 'View the players punishment logs',
     minArgs: 1,
     maxArgs: 1,
-    expectedArgs: "<Target user's @>",
+    expectedArgs: "<target user's @>",
     callback: async ({message}) => {
         const target = message.mentions.users.first()
         if (!target) {

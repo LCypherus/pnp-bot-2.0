@@ -3,8 +3,7 @@ const ticketAdminSchema = require('@schemas/ticket-admin-schema');
 
 module.exports = {
     // Best practice for the built-in help menu
-    name: 'ticket-adminsonly',
-    commands: ['ticket-adminsonly', 'adminsOnly', 'adminsonly'],
+    commands: ['Ticket adminsOnly', 'adminsonly', 'ticket-adminsonly'],
     
     category: 'Player Commands',
     description: 'Makes a ticket admins only',

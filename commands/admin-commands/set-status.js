@@ -1,7 +1,6 @@
 module.exports = {
-    name: 'set-status',
-    commands: ['set-status', 'status'],
-    category: 'Owner Commands',
+    commands: ['Set status', 'status', 'set-status'],
+    category: 'Admin Commands',
     description: 'Set the bot status to the argument.',
     minArgs: 1,
     maxArgs: -1,
@@ -13,7 +12,7 @@ module.exports = {
         client.user.setPresence({
             activity: {
                 name: text,
-                type: 0,
+                type: 'WATCHING',
             },
         })
     }

@@ -1,9 +1,8 @@
 const punishmentLogSchema = require('@schemas/punishment-log-schema')
 
 module.exports = {
-    name: 'kick',
-    commands: 'kick',
-    category: 'Player Admin Commands',
+    commands: ['Kick', 'kick'],
+    category: 'Moderator Commands',
     description: 'Kicks the player from the server',
     minArgs: 2,
     expectedArgs: "<Target user's @> <reason>",

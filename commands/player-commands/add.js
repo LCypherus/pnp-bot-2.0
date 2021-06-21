@@ -1,9 +1,10 @@
 module.exports = {
     // Best practice for the built-in help menu
+    commands: ['Add', 'add'],
     description: 'Adds two numbers together',
     category: 'Player Commands',
     // For the correct usage of the command
-    expectedArgs: '<Number 1> <Number 2>',
+    expectedArgs: '<number 1> <number 2>',
     minArgs: 2,
     maxArgs: 2,
     syntaxError: 'Incorrect usage! Please use "{PREFIX}add {ARGUMENTS}"',

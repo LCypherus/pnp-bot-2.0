@@ -1,10 +1,9 @@
 const welcomeSchema = require('@schemas/welcome-schema')
 
 module.exports = {
-    name: 'set-welcome',
-    commands: ['setwelcome'],
+    commands: ['Set welcome message', 'setwelcome', 'welcome'],
     
-    category: 'Owner Commands',
+    category: 'Admin Commands',
     description: 'Sets the welcome message',
 
     maxArgs: -1,

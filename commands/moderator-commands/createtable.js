@@ -3,14 +3,13 @@ const createTableSchema = require('@schemas/createtable-schema')
 
 module.exports = {
     // Best practice for the built-in help menu
-    name: 'createtable',
-    commands: ['createtable'],
+    commands: ['Create table', 'createtable'],
     
-    category: 'Channel Admin Commands',
+    category: 'Moderator Commands',
     description: 'Create a table with role, category and channels',
 
     minArgs: 4,
-    expectedArgs: '<type of table> <shortName> <dm\'s username#xxxx> <tablename>',
+    expectedArgs: '<type of table> <shortName> <mention dm> <tablename>',
     
     // Invoked when the command is actually ran
     callback: async ({ message, args, client }) => {

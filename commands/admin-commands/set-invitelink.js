@@ -1,9 +1,8 @@
 const commandInvitelinkSchema = require('@schemas/command-invitelink-schema')
 
 module.exports = {
-    name: 'set-invitelink',
-    commands: ['setinvitelink', 'setinvite'],
-    category: 'Owner Commands',
+    commands: ['Set invitelink', 'setinvite', 'set-invitelink'],
+    category: 'Admin Commands',
     description: 'Sets the invite link',
     minArgs: 1,
     maxArgs: 1,
