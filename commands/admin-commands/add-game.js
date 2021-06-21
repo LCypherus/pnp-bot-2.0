@@ -5,7 +5,7 @@ module.exports = {
     category: 'Admin Commands',
     description: 'Add\'s a new game to the gameslist',
     minArgs: 3,
-    expectedArgs: "<shortname> <longname>",
+    expectedArgs: "<id> <shortname> <longname>",
     callback: async ({message, args}) => {
         const guildId = message.guild.id
         const gameRoleId = args[0]
