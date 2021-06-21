@@ -29,6 +29,8 @@ module.exports = {
             upsert: true
         })
 
+        message.channel.send('Your welcome message has been updated.')
+
         client.on("guildMemberAdd", async (member) => {
             const { guild } = member
     
