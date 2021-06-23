@@ -7,6 +7,8 @@ module.exports = {
     minArgs: 2,
     expectedArgs: "<target user's @> <reason>",
     callback: async ({message, args}) => {
+        const { author: staff } = message
+        
         const target = message.mentions.users.first()
         if (!target) {
             message.reply('Please specify someone to warn.')
@@ -19,7 +21,9 @@ module.exports = {
         const warn = await new punishmentLogSchema({
             guildId,
             userId,
-            command: message.content
+            command: message.content,
+            staffId: staff.id,
+            staffTag: staff.tag,
         }).save()
 
         if(warn) {

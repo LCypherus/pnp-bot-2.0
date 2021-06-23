@@ -9,6 +9,8 @@ const punishmentLogSchema = mongoose.Schema({
     guildId: reqString,
     userId: reqString,
     command: reqString,
+    staffId: reqString,
+    staffTag: reqString,
 }, {
     timestamps: true,
 })

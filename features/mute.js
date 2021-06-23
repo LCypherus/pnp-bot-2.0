@@ -31,8 +31,12 @@ module.exports = (client, instance) => {
                 member.roles.remove(mutedRole)
             }
 
-            await muteSchema.updateMany(conditional, {
-                current: false
+            // await muteSchema.updateMany(conditional, {
+            //     current: false
+            // })
+
+            await muteSchema.findOneAndDelete(conditional, {
+                
             })
         }
         

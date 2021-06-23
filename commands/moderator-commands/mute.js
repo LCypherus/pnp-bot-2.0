@@ -1,8 +1,14 @@
 const muteSchema = require('@schemas/mute-schema');
+const punishmentLogSchema = require('@schemas/punishment-log-schema')
 
-const reasons = {
-    SPAMMING: 5,
-    ADVERTISING: 24,
+const allDurations = {
+    1: 24,
+    2: 48,
+    3: 72,
+    4: 96,
+    5: 120,
+    6: 144,
+    7: 168,
 }
 
 module.exports = {
@@ -12,12 +18,12 @@ module.exports = {
     category: 'Moderator Commands',
     description: 'Mutes the tagged user.',
 
-    minArgs: 2,
-    maxArgs: 2,
-    expectedArgs: "<target user\'s @> <reason>",
+    minArgs: 3,
+    maxArgs: -1,
+    expectedArgs: "<target user\'s @> <\# of days> <reason>",
     
     // Invoked when the command is actually ran
-    callback: async ({ message, channel, args, text, client, prefix, instance, interaction }) => {
+    callback: async ({ message, args }) => {
         const { guild, author: staff } = message;
 
         const target = message.mentions.users.first()
@@ -25,10 +31,10 @@ module.exports = {
             message.reply('Please specify some one to mute.')
         }
 
-        const reason = args[1].toUpperCase()
-        if (!reasons[reason]) {
+        const oneDuration = args[1]
+        if (!allDurations[oneDuration]) {
             let validReasons = ''
-            for (const key in reasons) {
+            for (const key in allDurations) {
                 validReasons += `${key}, `
             }
             validReasons = validReasons.substr(0, validReasons.length - 2)
@@ -50,7 +56,9 @@ module.exports = {
             return
         }
 
-        let duration = reasons[reason] * (previousMutes + 1)
+        let duration = allDurations[oneDuration] * (previousMutes.length + 1)
+
+        const reason = args.slice(2).join(" ")
 
         const expires = new Date()
         expires.setHours(expires.getHours() + duration)
@@ -69,6 +77,7 @@ module.exports = {
         await new muteSchema({ 
             guildId: message.guild.id,
             userId: target.id,
+            duration: oneDuration,
             reason, 
             staffId: staff.id,
             staffTag: staff.tag,
@@ -76,6 +85,14 @@ module.exports = {
             current: true
         }).save()
 
-        message.reply(`You muted <@${target.id} for "${reason}". They will be unmuted in ${duration} hours.`)
+        await new punishmentLogSchema({
+            guildId: message.guild.id,
+            userId: target.id,
+            command: message.content,
+            staffId: staff.id,
+            staffTag: staff.tag,
+        }).save()
+
+        message.reply(`You muted <@${target.id}> for "${oneDuration} days(s)". The reason is "${reason}".`)
     }
 }

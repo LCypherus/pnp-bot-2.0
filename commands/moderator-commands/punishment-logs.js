@@ -26,7 +26,7 @@ module.exports = {
         let reply = ''
 
         for (const result of results) {
-            reply += `**${result.command}** was ran at ${new Date(result.createdAt).toLocaleDateString()}\n`
+            reply += `**${result.command}** was ran at ${new Date(result.createdAt).toLocaleDateString()} by ${result.staffTag}\n`
         }
 
         const punishmentLogEmbed = new Discord.MessageEmbed()
