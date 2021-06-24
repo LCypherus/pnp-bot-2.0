@@ -31,7 +31,7 @@ module.exports = {
         const tableShorthand = tableName.match(/(?:^| )(\w)/g).join("").replace(/ /gi, "");
 
         // Pre-made role id's
-        const spectator = "853733170972852306"
+        const spectator = "733945802296393793"
 
         // Create a role
         let role = await message.guild.roles.create({
