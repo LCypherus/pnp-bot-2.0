@@ -1,4 +1,5 @@
 require('module-alias/register')
+const CronJob = require('cron').CronJob;
 
 const DiscordJS = require('discord.js')
 const client = new DiscordJS.Client({
@@ -10,7 +11,7 @@ const WOKCommands = require('wokcommands')
 require('dotenv').config();
 
 client.on('ready', () => {
-    console.log('The client is ready!')
+    console.log('The client is ready!');
 
     const wok = new WOKCommands(client, {
         commandsDir: 'commands',
@@ -26,7 +27,6 @@ client.on('ready', () => {
             useFindAndModify: false,
         },
         disabledDefaultCommands: [
-            'command',
             'language',
             'menu',
         ]
