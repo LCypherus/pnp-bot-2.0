@@ -18,7 +18,7 @@ module.exports = {
         const job = new CronJob('*/5 */2 * * *', function() {
             const guild = client.guilds.cache.get(message.guild.id);
             const channel = guild.channels.cache.get(disboardChannel);
-            channel.send('You message');
+            channel.send('!d bump');
         });
         console.log('After job instantiation');
         job.start();
