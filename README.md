@@ -5,45 +5,47 @@ This is the Pen and Players RolePlay Server Discord bot 2.0
 
 ## Player command
 - Add command
+- Bot info command
 - Get Invitelink
+- Help system
+- User info command
 - Ticket system (+ adminsonly command)
 - Roll
 
-## Channel admin commands
+## Moderator commands
 - Clear Channel command
 - Delete Channel command
 - Dynamic Create Table command
-
-## Player admin commands
 - Give role command
 - Has role command
 - Remove role command
 - Kick command (logged in punishments)
 - Warn command (logged in punishments)
 - Punishment logs
+- Mute system
+- Unmute
+- Advanced help system with player and moderator commands
 
-## Owner commands
+## Admin commands
 - Ping (calculating bot/api latency)
 - Delete punishment
+- Set disboard bump channel
+- Disboard cron job command
 - Set invitelink
 - Set welcome message
-- Add game
-- Set role size channels
-- Ticket admin
+- Add game for createtable command
+- Set role size channels for server stats
+- Ticket admin (setups the ticket system)
 - Set welcome message
 - Set bot's status
+- Simulating joining and leaving (to test welcome message)
+- Admin help system with every server command
 
 # In progress
+- Dynamic Reaction Roles
 
 # To-do
-- Mute system (#56)
-- Unmute (#57)
-- isMuted (#58)
-- Dynamic reaction roles (#80)
-- Simulating joining and leaving (#72)
-- Documentation command? (#66)
-- Advanced suggestions (#70)
-- Nickname command (#65)
-- Bot info (#51)
-- User info (#52)
-- Playing audio in a voice channel (#50)
+- Documentation command?
+- Advanced suggestions
+- Nickname command
+- Playing audio in a voice channel
