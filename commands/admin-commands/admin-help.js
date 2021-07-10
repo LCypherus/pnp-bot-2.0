@@ -107,6 +107,10 @@ module.exports = {
         **Description: **Makes a command only work in some channels.
         **Command: **${prefix}channelonly <command name> [Channel tags OR "none"]
         
+        **---------- Enable/Disable Commands ----------**
+        **Description: **Enables or disables commands in your guild.
+        **Command: **${prefix}command <enable or disable> <command name>
+
         **---------- Required role ----------**
         **Description: **Specifies what role each command requires.
         **Command: **${prefix}requiredrole <command name> <"none" | tagged role>
