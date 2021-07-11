@@ -41,4 +41,4 @@ client.on('ready', () => {
     })
 })
 
-client.login(process.env.BOTTOKEN);
+client.login();
